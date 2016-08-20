@@ -4,11 +4,4 @@
  *   NodeBB 0.9.0
  *   nodebb-theme-lavender 3.0.0
  */
-
-define("@{type.name}/@{id}/themes/lavender/main", [
-  "@{type.name}/@{id}/themes/lavender/selection"
-], function (selection) {
-  "use strict";
-
-  return function (shortcuts, theme) { selection(shortcuts, theme); };
-});
+define("plugin/shortcuts/themes/lavender/main",["plugin/shortcuts/themes/lavender/selection"],function(a){"use strict";return function(b,c){a(b,c)}});

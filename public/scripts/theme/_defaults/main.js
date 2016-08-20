@@ -1,57 +1,4 @@
-define("@{type.name}/@{id}/theme-defaults", [
-  "@{type.name}/@{id}/theme-defaults/utils",
-  "@{type.name}/@{id}/theme-defaults/scopes",
-  "@{type.name}/@{id}/theme-defaults/actions"
-], function (defaultUtils, defaultScopes, defaultActions) {
-  "use strict";
-
-  return function (shortcuts, theme) {
-    defaultUtils(shortcuts, theme);
-    defaultScopes(shortcuts, theme);
-    defaultActions(shortcuts, theme);
-
-    theme.dialogs = {
-      getOpened: function () {
-        return $(".modal-dialog").not(".chat-modal>div").filter(":visible").filter(function (ignored, el) {
-          return $(el).height();
-        });
-      },
-      close: function (dialog) { return $(".bootbox-close-button", dialog).click().length > 0; },
-      cancel: function (dialog) { return $("[data-bb-handler=\"cancel\"]", dialog).click().length > 0; },
-      confirm: function (dialog) {
-        var $confirm = $("[data-bb-handler=\"confirm\"]", dialog);
-        if ($confirm.length) {
-          $confirm.click();
-          return true;
-        } else {
-          $confirm = $("[data-bb-handler=\"ok\"]", dialog);
-          return $confirm.click().length > 0;
-        }
-      }
-    };
-
-    theme.composer = {
-      getActive: function () {
-        var composerList = $(".composer").filter(":visible").toArray();
-        for (var i = 0; i < composerList.length; i++) {
-          if ($(composerList[i]).css("visibility") !== "hidden") { return composerList[i]; }
-        }
-        return null;
-      },
-      getAny: function () {
-        var composerList = $(".composer").filter(":visible");
-        return composerList.length ? composerList[0] : null;
-      },
-      toggleFirst: function () {
-        var tbItems = $(".taskbar li[data-module=\"composer\"]");
-        var composerId = "cmp-uuid-" + tbItems.data("uuid");
-        var tbLink = $("> a", tbItems)[0];
-        if (tbLink != null) { tbLink.click(); }
-        return document.getElementById(composerId);
-      }
-    };
-
-    /**
+define("plugin/shortcuts/theme-defaults",["plugin/shortcuts/theme-defaults/utils","plugin/shortcuts/theme-defaults/scopes","plugin/shortcuts/theme-defaults/actions"],function(a,b,c){"use strict";return function(d,e){a(d,e),b(d,e),c(d,e),e.dialogs={getOpened:function(){return $(".modal-dialog").not(".chat-modal>div").filter(":visible").filter(function(a,b){return $(b).height()})},close:function(a){return $(".bootbox-close-button",a).click().length>0},cancel:function(a){return $('[data-bb-handler="cancel"]',a).click().length>0},confirm:function(a){var b=$('[data-bb-handler="confirm"]',a);return b.length?(b.click(),!0):(b=$('[data-bb-handler="ok"]',a),b.click().length>0)}},e.composer={getActive:function(){for(var a=$(".composer").filter(":visible").toArray(),b=0;b<a.length;b++)if("hidden"!==$(a[b]).css("visibility"))return a[b];return null},getAny:function(){var a=$(".composer").filter(":visible");return a.length?a[0]:null},toggleFirst:function(){var a=$('.taskbar li[data-module="composer"]'),b="cmp-uuid-"+a.data("uuid"),c=$("> a",a)[0];return null!=c&&c.click(),document.getElementById(b)}},/**
      * List of Selection-Area types.
      * An element has to provide a selector to identify all items of the area.
      * Every element may provide the following attributes:
@@ -64,6 +11,4 @@ define("@{type.name}/@{id}/theme-defaults", [
      * ; blur.area(newArea) - area-scope. Gets called when another area got selected.
      * ; getClassElement(item) - proposal elements scope. Returns the element to display box-shadow around.
      */
-    theme.selection = [];
-  };
-});
+e.selection=[]}});

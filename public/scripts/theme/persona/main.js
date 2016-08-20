@@ -4,11 +4,4 @@
  *   NodeBB 0.9.0
  *   nodebb-theme-persona 4.0.39
  */
-
-define("@{type.name}/@{id}/themes/persona/main", [
-  "@{type.name}/@{id}/themes/persona/selection"
-], function (selection) {
-  "use strict";
-
-  return function (shortcuts, theme) { selection(shortcuts, theme); };
-});
+define("plugin/shortcuts/themes/persona/main",["plugin/shortcuts/themes/persona/selection"],function(a){"use strict";return function(b,c){a(b,c)}});

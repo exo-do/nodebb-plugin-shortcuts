@@ -1,24 +1,24 @@
-<form class="form-horizontal" id="@{id}-settings">
+<form class="form-horizontal" id="shortcuts-settings">
   <div class="row">
     <div class="col-xs-12 col-lg-9">
       <div class="panel panel-default">
-        <div class="panel-heading">[[@{id}:name]] [[@{id}:version]] / [[@{id}:settings.main]]</div>
+        <div class="panel-heading">[[shortcuts:name]] [[shortcuts:version]] / [[shortcuts:settings.main]]</div>
         <div class="panel-body">
           <div class="form-group">
             <label class="col-xs-12 col-sm-5 control-label"
-                   for="@{id}-shadow-color">[[@{id}:settings.main.shadowColor]]</label>
+                   for="shortcuts-shadow-color">[[shortcuts:settings.main.shadowColor]]</label>
             <div class="col-xs-12 col-sm-7">
-              <input id="@{id}-shadow-color" class="form-control" type="color" data-key="selectionColor"
-                     placeholder="[[@{id}:settings.main.shadowColor.none]]"/>
+              <input id="shortcuts-shadow-color" class="form-control" type="color" data-key="selectionColor"
+                     placeholder="[[shortcuts:settings.main.shadowColor.none]]"/>
             </div>
           </div>
 
           <div class="form-group">
             <label class="col-xs-12 col-sm-5 control-label"
-                   for="@{id}-repeat-delay">[[@{id}:settings.main.repeatDelay]]</label>
+                   for="shortcuts-repeat-delay">[[shortcuts:settings.main.repeatDelay]]</label>
             <div class="col-xs-12 col-sm-7">
-              <input id="@{id}-repeat-delay" class="form-control" type="number" step="1" min="0" data-key="repeatDelay"
-                     placeholder="[[@{id}:settings.main.shadowColor.none]]"/>
+              <input id="shortcuts-repeat-delay" class="form-control" type="number" step="1" min="0" data-key="repeatDelay"
+                     placeholder="[[shortcuts:settings.main.shadowColor.none]]"/>
             </div>
           </div>
         </div>
@@ -31,7 +31,7 @@
         <div class="panel-body">
           <div class="form-group">
             <div class="col-xs-12">
-              <button type="submit" class="btn btn-primary btn-block @{id}-settings-save" accesskey="s"
+              <button type="submit" class="btn btn-primary btn-block shortcuts-settings-save" accesskey="s"
                       disabled="disabled">
                 <i class="fa fa-fw fa-save"></i> [[plugins:actions.save]]
               </button>
@@ -39,14 +39,14 @@
           </div>
           <div class="form-group">
             <div class="col-xs-12">
-              <button type="button" class="btn btn-warning btn-block @{id}-settings-reset" disabled="disabled">
+              <button type="button" class="btn btn-warning btn-block shortcuts-settings-reset" disabled="disabled">
                 <i class="fa fa-fw fa-eraser"></i> [[plugins:actions.reset]]
               </button>
             </div>
           </div>
           <div class="form-group">
             <div class="col-xs-12">
-              <button type="button" class="btn btn-danger btn-block @{id}-settings-purge" disabled="disabled">
+              <button type="button" class="btn btn-danger btn-block shortcuts-settings-purge" disabled="disabled">
                 <i class="fa fa-fw fa-history"></i> [[plugins:actions.purge]]
               </button>
             </div>
@@ -57,15 +57,15 @@
 
     <div class="col-xs-12">
       <div class="panel panel-default">
-        <div class="panel-heading">[[@{id}:settings.actions]]</div>
-        <div class="panel-body"><div id="@{id}-actions" class="row"></div></div>
+        <div class="panel-heading">[[shortcuts:settings.actions]]</div>
+        <div class="panel-body"><div id="shortcuts-actions" class="row"></div></div>
       </div>
     </div>
 
     <div class="col-xs-12">
       <div class="panel panel-default">
-        <div class="panel-heading">[[@{id}:settings.adminActions]]</div>
-        <div class="panel-body"><div id="@{id}-admin-actions" class="row"></div></div>
+        <div class="panel-heading">[[shortcuts:settings.adminActions]]</div>
+        <div class="panel-body"><div id="shortcuts-admin-actions" class="row"></div></div>
       </div>
     </div>
 
@@ -75,7 +75,7 @@
         <div class="panel-body">
           <div class="form-group">
             <div class="col-xs-12">
-              <button type="submit" class="btn btn-primary btn-block @{id}-settings-save" accesskey="s"
+              <button type="submit" class="btn btn-primary btn-block shortcuts-settings-save" accesskey="s"
                       disabled="disabled">
                 <i class="fa fa-fw fa-save"></i> [[plugins:actions.save]]
               </button>
@@ -83,14 +83,14 @@
           </div>
           <div class="form-group">
             <div class="col-xs-12">
-              <button type="button" class="btn btn-warning btn-block @{id}-settings-reset" disabled="disabled">
+              <button type="button" class="btn btn-warning btn-block shortcuts-settings-reset" disabled="disabled">
                 <i class="fa fa-fw fa-eraser"></i> [[plugins:actions.reset]]
               </button>
             </div>
           </div>
           <div class="form-group">
             <div class="col-xs-12">
-              <button type="button" class="btn btn-danger btn-block @{id}-settings-purge" disabled="disabled">
+              <button type="button" class="btn btn-danger btn-block shortcuts-settings-purge" disabled="disabled">
                 <i class="fa fa-fw fa-history"></i> [[plugins:actions.purge]]
               </button>
             </div>
@@ -101,5 +101,5 @@
   </div>
 </form>
 
-<link rel="stylesheet" type="text/css" href="{relative_path}/plugins/@{name}/static/styles/adminSettings.css"/>
-<script type="text/javascript" src="{relative_path}/plugins/@{name}/static/scripts/adminSettings.js"></script>
+<link rel="stylesheet" type="text/css" href="{relative_path}/plugins/nodebb-plugin-shortcuts/static/styles/adminSettings.css"/>
+<script type="text/javascript" src="{relative_path}/plugins/nodebb-plugin-shortcuts/static/scripts/adminSettings.js"></script>

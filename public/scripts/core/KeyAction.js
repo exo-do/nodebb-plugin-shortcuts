@@ -1,66 +1,6 @@
-define("@{type.name}/@{id}/KeyAction", ["@{type.name}/@{id}/key-codes"], function (keyCodes) {
-  "use strict";
-
-  function convertKeyCodeToChar(code) {
-    if (code >= 48 && code <= 90) {
-      return String.fromCharCode(code).toUpperCase();
-    } else if (code >= 112 && code <= 123) {
-      return "F" + (code - 111);
-    } else {
-      return keyCodes.inverted[code] || ("#" + code);
-    }
-  }
-
-  /**
+define("plugin/shortcuts/KeyAction",["plugin/shortcuts/key-codes"],function(a){"use strict";function b(b){return b>=48&&90>=b?String.fromCharCode(b).toUpperCase():b>=112&&123>=b?"F"+(b-111):a.inverted[b]||"#"+b}/**
    * @param keyName The short identifier of the key (formatted like "C+M+40").
    * @param actionName The name of the action to bind this instance to.
    * @constructor
    */
-  function KeyAction(keyName, actionName) {
-    var parts = keyName.split("+");
-    var current;
-
-    // interpret modifiers modifiers
-    var last = parts.length - 1;
-    for (var i = 0; i < last; i++) {
-      current = parts[i];
-      this.keyString += this.addModifier(current.toUpperCase());
-    }
-
-    this.action = actionName;
-    this.keyCode = +(/\d+/.exec(parts[last])[0]);
-    this.keyString += convertKeyCodeToChar(this.keyCode);
-  }
-
-  KeyAction.prototype.keyString = "";
-  KeyAction.prototype.alt = KeyAction.prototype.ctrl = KeyAction.prototype.shift = KeyAction.prototype.meta = false;
-
-  KeyAction.prototype.addModifier = function (char) {
-    switch (char) {
-      case "C":
-        this.ctrl = true;
-        return "Ctrl+";
-      case "A":
-        this.alt = true;
-        return "Alt+";
-      case "S":
-        this.shift = true;
-        return "Shift+";
-      case "M":
-        this.meta = true;
-        return "Meta+";
-    }
-    return "";
-  };
-
-  KeyAction.prototype.matches = function (event, key, isInput) {
-    return key === this.keyCode &&
-        event.ctrlKey === this.ctrl &&
-        event.altKey === this.alt &&
-        event.shiftKey === this.shift &&
-        event.metaKey === this.meta &&
-        (!isInput || this.ctrl || this.alt || this.meta || key === keyCodes.mapped.Escape);
-  };
-
-  return KeyAction;
-});
+function c(a,c){for(var d,e=a.split("+"),f=e.length-1,g=0;f>g;g++)d=e[g],this.keyString+=this.addModifier(d.toUpperCase());this.action=c,this.keyCode=+/\d+/.exec(e[f])[0],this.keyString+=b(this.keyCode)}return c.prototype.keyString="",c.prototype.alt=c.prototype.ctrl=c.prototype.shift=c.prototype.meta=!1,c.prototype.addModifier=function(a){switch(a){case"C":return this.ctrl=!0,"Ctrl+";case"A":return this.alt=!0,"Alt+";case"S":return this.shift=!0,"Shift+";case"M":return this.meta=!0,"Meta+"}return""},c.prototype.matches=function(b,c,d){return c===this.keyCode&&b.ctrlKey===this.ctrl&&b.altKey===this.alt&&b.shiftKey===this.shift&&b.metaKey===this.meta&&(!d||this.ctrl||this.alt||this.meta||c===a.mapped.Escape)},c});
